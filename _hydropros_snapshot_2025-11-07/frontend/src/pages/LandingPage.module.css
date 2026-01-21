@@ -1,0 +1,532 @@
+/* ===== Brand tokens ===== */
+:root {
+  --brand-navy: #0b233a;
+  --brand-navy-ink: #081b2d;
+  --brand-navy-deep: #06121f;
+  --brand-tan-100: #f1e8da;
+  --brand-tan-50: #f6efe5;
+  --brand-logo: #14a3ff;
+  --brand-white: #ffffff;
+  --ink-1: #142029;
+  --ink-2: #3b4a57;
+  --ink-3: #5a6b79;
+  --border: rgba(8, 25, 41, 0.10);
+  --shadow: 0 10px 28px rgba(2, 18, 34, 0.10);
+}
+
+/* ===== Layout container ===== */
+.container {
+  width: min(1120px, 92vw);
+  margin-inline: auto;
+}
+
+/* ===== Page base =====
+   Note: we purposely do NOT set a background here because the page
+   receives its background image via an inline style in JSX. */
+.page {
+  color: var(--ink-1);
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+}
+
+/* ===== Very Top Water Banner (now contains the header) ===== */
+.topBanner {
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 10px 0 0 0; /* top ribbon; header sits directly below it inside the same banner */
+  isolation: isolate;
+}
+
+.topBanner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(6, 18, 31, 0.65) 0%, rgba(6, 18, 31, 0.35) 60%, rgba(6, 18, 31, 0.25) 100%);
+  z-index: 0;
+}
+
+.topBannerRow {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-items: center;
+  gap: 8px;
+  color: #e8f6ff;
+}
+
+.topBannerText {
+  text-align: center;
+  font-family: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+  font-size: clamp(13px, 1.6vw, 16px);
+  letter-spacing: 0.02em;
+  color: #e6f2ff;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.28);
+}
+
+/* The header now docks inside the banner.
+   We nuke any background that component may add so the water shows through. */
+.headerDock {
+  position: relative;
+  z-index: 1;
+}
+
+/* Force-override common header wrappers inside LandingHeader (CSS Modules global escape) */
+.headerDock :global(header),
+.headerDock :global(.header),
+.headerDock :global(.siteHeader),
+.headerDock :global([data-header]),
+.headerDock :global(.LandingHeader_root) {
+  background: transparent !important;   /* remove white strip */
+  box-shadow: none !important;          /* remove any drop shadow */
+  border: none !important;
+}
+
+/* Also make inner containers transparent just in case */
+.headerDock :global(.container),
+.headerDock :global(.nav),
+.headerDock :global(.wrapper) {
+  background: transparent !important;
+}
+
+/* ===== Bold 3-D Brand Header ===== */
+.brandBanner {
+  position: relative;
+  background: radial-gradient(120% 180% at 50% -40%, #113454 0%, var(--brand-navy) 45%, var(--brand-navy-deep) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 26px 0 28px 0;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 18px 40px rgba(6, 18, 31, 0.35);
+}
+
+.brandInner {
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+}
+
+.brandMark {
+  position: relative;
+  margin: 0;
+  line-height: 1;
+}
+
+.brandMarkFront {
+  position: relative;
+  display: inline-block;
+  font-family: "Playfair Display", serif;
+  font-weight: 900;
+  font-size: clamp(36px, 6vw, 68px);
+  letter-spacing: 0.5px;
+  background: linear-gradient(180deg, #e6f5ff 0%, #bfe8ff 35%, #6fc3ff 60%, #dff2ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.6),
+    0 2px 0 rgba(204, 236, 255, 0.8),
+    0 3px 0 rgba(150, 206, 255, 0.8),
+    0 6px 10px rgba(0, 0, 0, 0.35);
+}
+
+.brandMarkBack {
+  position: absolute;
+  inset: 0;
+  transform: translate(6px, 6px);
+  font-family: "Playfair Display", serif;
+  font-weight: 900;
+  font-size: clamp(36px, 6vw, 68px);
+  color: rgba(0, 0, 0, 0.45);
+  filter: blur(0.5px);
+  z-index: -1;
+}
+
+.brandSlogan {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  font-family: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+  font-weight: 800;
+  font-size: clamp(16px, 2.6vw, 26px);
+  letter-spacing: 0.04em;
+  color: #e9f6ff;
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.15),
+    0 6px 16px rgba(0, 0, 0, 0.45);
+  padding: 6px 14px;
+  border-radius: 10px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ===== Hero section ===== */
+.hero {
+  padding: 52px 0 42px 0;
+  background: radial-gradient(120% 120% at 50% 0%, var(--brand-tan-50) 0%, var(--brand-tan-100) 68%, #efe5d6 100%);
+}
+
+.heroContent {
+  text-align: center;
+}
+
+.heroTitle {
+  font-family: "Playfair Display", serif;
+  font-weight: 800;
+  font-size: clamp(28px, 4.2vw, 46px);
+  line-height: 1.15;
+  letter-spacing: 0.2px;
+  margin: 0 0 12px 0;
+  color: var(--brand-navy-ink);
+}
+
+.heroSubtitle {
+  font-family: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+  font-size: clamp(14px, 1.8vw, 18px);
+  line-height: 1.6;
+  color: var(--ink-2);
+  margin: 0 auto 26px auto;
+  max-width: 820px;
+}
+
+/* ===== Media row ===== */
+.mediaRow {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: 1.1fr minmax(380px, 560px) 1.1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.heroForm {
+  background: var(--brand-white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+
+/* ===== Product cards ===== */
+.productCard {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 12px;
+  padding: 14px;
+  background: var(--brand-white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  width: 100%;
+  cursor: pointer;
+  transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
+  box-shadow: var(--shadow);
+}
+
+.productCard:hover {
+  transform: translateY(-2px);
+  border-color: rgba(8, 25, 41, 0.18);
+  box-shadow: 0 14px 36px rgba(2, 18, 34, 0.12);
+}
+
+.productImageWrap {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 12px;
+  background: radial-gradient(80% 80% at 50% 50%, #ffffff 0%, #f5f7fa 100%);
+  border: 1px solid rgba(8, 25, 41, 0.08);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.productImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* stronger, larger, easier to read text under the images */
+.productMeta {
+  display: grid;
+  gap: 6px;
+}
+
+.productTitle {
+  font-family: "Playfair Display", serif;
+  font-weight: 800;
+  color: var(--brand-navy-ink);
+  font-size: 19px;
+  letter-spacing: 0.2px;
+}
+
+.productBlurb {
+  margin: 0;
+  font-family: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.6;
+  color: #1f3442;
+}
+
+.productStyles {
+  margin-top: 2px;
+  font-family: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #2a4356;
+}
+
+/* ===== Features ===== */
+.features {
+  padding: 58px 0;
+  border-top: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--brand-white) 0%, var(--brand-tan-50) 100%);
+}
+
+.sectionTitle {
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(22px, 3.2vw, 34px);
+  color: var(--brand-navy-ink);
+  margin-bottom: 26px;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.feature {
+  background: var(--brand-white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+  text-align: left;
+  box-shadow: var(--shadow);
+}
+
+.feature h4 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  color: var(--brand-navy-ink);
+}
+
+.feature p {
+  margin: 0;
+  font-size: 14px;
+  color: #2f4250;
+  line-height: 1.6;
+}
+
+/* ===== Testimonials ===== */
+.testimonials {
+  padding: 52px 0 68px 0;
+  background: linear-gradient(180deg, var(--brand-tan-50) 0%, var(--brand-tan-100) 100%);
+}
+
+.testimonial {
+  max-width: 820px;
+  margin: 0 auto;
+  background: var(--brand-white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.testimonial blockquote {
+  margin: 0 0 10px 0;
+  font-size: clamp(16px, 2vw, 20px);
+  color: #1f3442;
+  line-height: 1.7;
+}
+
+.testimonial cite {
+  font-size: 13px;
+  color: var(--ink-3);
+}
+
+/* ===== Footer ===== */
+.footer {
+  padding: 22px 0;
+  border-top: 1px solid var(--border);
+  background: var(--brand-white);
+}
+
+.footerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.footerLink {
+  color: var(--brand-navy);
+  text-decoration: none;
+}
+
+.footerLink:hover {
+  text-decoration: underline;
+}
+
+/* ===== Lightbox ===== */
+.lightboxOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 18, 28, 0.85);
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  z-index: 9999;
+}
+
+.lightboxContent {
+  position: relative;
+  max-width: min(1180px, 96vw);
+  max-height: min(90vh, 920px);
+  width: auto;
+  height: auto;
+  background: var(--brand-white);
+  border: 1px solid rgba(8, 25, 41, 0.12);
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  box-shadow: 0 18px 60px rgba(2, 18, 34, 0.35);
+  padding: 12px;
+}
+
+.lightboxImage {
+  max-width: 100%;
+  max-height: calc(90vh - 64px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  background: radial-gradient(70% 70% at 50% 50%, #ffffff 0%, #f5f7fa 100%);
+  border-radius: 10px;
+}
+
+.lightboxClose {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid rgba(8, 25, 41, 0.16);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--brand-navy-ink);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+}
+
+.lightboxClose:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 1);
+  border-color: rgba(8, 25, 41, 0.28);
+}
+
+.lightboxArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(8, 25, 41, 0.16);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--brand-navy-ink);
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+}
+
+.lightboxArrow:hover {
+  transform: translateY(-50%) scale(1.03);
+  background: rgba(255, 255, 255, 1);
+  border-color: rgba(8, 25, 41, 0.28);
+}
+
+.lightboxArrow.left {
+  left: 12px;
+}
+
+.lightboxArrow.right {
+  right: 12px;
+}
+
+.lightboxCaption {
+  position: absolute;
+  bottom: 8px;
+  left: 12px;
+  right: 12px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--brand-navy-ink);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1020px) {
+  .mediaRow {
+    grid-template-columns: 1fr minmax(340px, 540px) 1fr;
+  }
+}
+
+@media (max-width: 860px) {
+  .mediaRow {
+    grid-template-columns: 1fr;
+  }
+  .productImageWrap {
+    aspect-ratio: 16 / 10;
+  }
+  .heroForm {
+    order: 1;
+  }
+}
+/* Turn the phone link into a high-contrast pill button */
+.headerDock :global(a[href^="tel:"]) {
+  color: #062033 !important;                                   /* dark text */
+  background: linear-gradient(180deg,#9fe3ff 0%,#47c2ff 100%);  /* glossy aqua */
+  padding: 8px 14px;                                           /* clickable area (padding = inside space) */
+  border-radius: 999px;                                        /* pill shape (very rounded corners) */
+  font-weight: 900 !important;                                  /* boldest weight */
+  text-decoration: none !important;                             /* remove underline */
+  box-shadow: 0 6px 18px rgba(20,163,255,0.30);                 /* soft glow (box-shadow = outer shadow) */
+  transition: transform 120ms ease, box-shadow 120ms ease;      /* smooth hover */
+}
+
+.headerDock :global(a[href^="tel:"]:hover),
+.headerDock :global(a[href^="tel:"]:focus) {
+  transform: translateY(-1px);                                  /* tiny lift on hover */
+  box-shadow: 0 10px 24px rgba(20,163,255,0.45);
+}
+/* Brighten the whole "Call for a Free Consultation" text block */
+.headerDock :global(span),
+.headerDock :global(.consultationText) {
+  color: #c8ecff !important;              /* lighter sky blue */
+  font-weight: 700 !important;            /* bolder */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.6); /* subtle glow */
+}

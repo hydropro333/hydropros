@@ -1,0 +1,153 @@
+.footer {
+  margin-top: auto;
+  background: linear-gradient(180deg, rgba(13, 60, 85, 0.9), #0d3c55 55%, #0b2f41);
+  color: rgba(255, 255, 255, 0.9);
+  position: relative;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent), rgba(28, 151, 200, 0));
+}
+
+/* CTA Ribbon */
+.ribbon {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.2rem;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.ribbonCopy h3 {
+  color: #fff;
+  margin: 0.4rem 0 0.3rem;
+}
+
+.ribbonCopy p { color: rgba(255, 255, 255, 0.82); margin: 0; }
+
+.ribbonActions { display: inline-flex; gap: 0.8rem; flex-wrap: wrap; }
+
+/* Main section */
+.main {
+  display: grid;
+  grid-template-columns: minmax(240px, 360px) 1fr minmax(280px, 360px);
+  gap: 2.6rem;
+  align-items: start;
+  padding: 2.2rem 0 1.8rem;
+}
+
+.brand { display: grid; gap: 1rem; --footer-logo-width: 184px; }
+.brand p { color: rgba(255, 255, 255, 0.75); margin: 0; }
+
+.contactCard {
+  display: grid;
+  gap: 0.6rem;
+  padding: 0.6rem 0.5rem;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  width: var(--footer-logo-width);
+  box-sizing: border-box;
+  justify-items: center;
+  text-align: center;
+}
+
+.contactCard a { color: #fff; font-weight: 700; overflow-wrap: anywhere; }
+/* Slightly smaller font just for the email */
+.contactCard a[href^="mailto:"] { font-size: 0.9rem; line-height: 1.2; }
+
+.links { display: grid; grid-template-columns: repeat(2, minmax(160px, 1fr)); gap: 2rem; }
+
+.linkGroup h4 {
+  margin: 0 0 0.6rem;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.linkGroup ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem; }
+.linkGroup a { color: rgba(255, 255, 255, 0.78); font-weight: 600; }
+.linkGroup a:hover { color: #fff; }
+
+.updates { align-self: start; }
+.updates p { color: rgba(255, 255, 255, 0.78); margin: 0 0 0.6rem; }
+
+.updatesForm {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.75rem;
+  border-radius: var(--radius-md);
+  align-items: stretch;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.updatesForm input {
+  border: none;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  padding: 0.9rem 1rem;
+  border-radius: 999px;
+  min-height: 48px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.updatesForm input::placeholder { color: rgba(255, 255, 255, 0.65); }
+.updatesForm .btn {
+  min-height: 48px;
+  border-radius: 999px;
+  padding: 0 1.2rem;
+  height: 100%;
+  align-self: stretch;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Bottom bar */
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.2rem 0 2.4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.bottomLinks { display: inline-flex; gap: 1.2rem; }
+.bottomLinks a { color: inherit; }
+
+@media (max-width: 960px) {
+  .ribbon { grid-template-columns: 1fr; text-align: left; }
+  .ribbonActions { justify-content: flex-start; }
+  .main { grid-template-columns: 1fr; }
+  .links { grid-template-columns: repeat(2, 1fr); }
+  .updatesForm { grid-template-columns: 1fr; }
+  .updatesForm .btn { width: 100%; }
+  .bottom { flex-direction: column; align-items: flex-start; }
+}
+.socialLinks {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.socialLinks a {
+  color: rgba(255, 255, 255, 0.78);
+  transition: color 200ms ease;
+}
+
+.socialLinks a:hover {
+  color: #fff;
+}

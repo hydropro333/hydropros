@@ -1,0 +1,42 @@
+.section {
+  display: grid;
+  gap: 2.8rem;
+}
+
+.heading {
+  max-width: 640px;
+}
+
+.carousel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.8rem;
+}
+
+.card {
+  padding: 2.2rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  border: 1px solid rgba(13, 60, 85, 0.08);
+  box-shadow: 0 50px 90px -60px rgba(13, 60, 85, 0.55);
+  display: grid;
+  gap: 1.2rem;
+}
+
+blockquote {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+}
+
+figcaption {
+  display: grid;
+  gap: 0.15rem;
+  color: var(--color-text-soft);
+}
+
+figcaption strong {
+  color: var(--color-primary);
+  font-size: 0.98rem;
+}

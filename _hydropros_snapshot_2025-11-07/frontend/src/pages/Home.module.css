@@ -1,0 +1,97 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4rem, 6vw, 6rem);
+  padding-bottom: clamp(5rem, 8vw, 7rem);
+}
+
+.sectionGroup {
+  display: grid;
+  gap: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.immersionPanel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(2rem, 3vw, 2.8rem);
+  overflow: hidden;
+}
+
+.immersionCopy {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.immersionPoints {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.immersionVisual {
+  position: relative;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(185deg, rgba(13, 60, 85, 0.15), rgba(28, 151, 200, 0.3));
+  min-height: 280px;
+  overflow: hidden;
+}
+
+.waveLayerOne,
+.waveLayerTwo,
+.waveLayerThree {
+  position: absolute;
+  inset: auto -20% -20% -20%;
+  height: 65%;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  opacity: 0.65;
+}
+
+.waveLayerOne {
+  background: radial-gradient(circle at 20% 20%, rgba(28, 151, 200, 0.35), rgba(13, 60, 85, 0.85));
+  animation: floatOne 9s ease-in-out infinite;
+}
+
+.waveLayerTwo {
+  background: radial-gradient(circle at 60% 0%, rgba(13, 60, 85, 0.65), transparent 70%);
+  animation: floatTwo 11s ease-in-out infinite;
+}
+
+.waveLayerThree {
+  background: radial-gradient(circle at 80% 30%, rgba(198, 234, 255, 0.4), transparent 75%);
+  animation: floatThree 13s ease-in-out infinite;
+}
+
+@keyframes floatOne {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-10%) scale(1.05);
+  }
+}
+
+@keyframes floatTwo {
+  0%,
+  100% {
+    transform: translate(-5%, -5%) scale(1);
+  }
+  50% {
+    transform: translate(8%, -12%) scale(1.1);
+  }
+}
+
+@keyframes floatThree {
+  0%,
+  100% {
+    transform: translateY(10%) scale(1);
+  }
+  50% {
+    transform: translateY(-8%) scale(1.06);
+  }
+}

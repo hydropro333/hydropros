@@ -1,0 +1,11 @@
+{
+  "name": "hydropros-functions",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "pg": "^8.11.3",
+    "nodemailer": "^6.9.14",
+    "uuid": "^9.0.1",
+    "zod": "^3.23.8"
+  }
+}

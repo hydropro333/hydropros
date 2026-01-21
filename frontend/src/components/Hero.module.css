@@ -1,0 +1,38 @@
+.hero {
+  position: relative;
+  padding: clamp(3rem, 5vw, 5rem) 0;
+  color: var(--color-primary);
+  isolation: isolate;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.25;
+  filter: saturate(120%);
+  z-index: -1;
+}
+
+.inner {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.copy {
+  max-width: 640px;
+  display: grid;
+  gap: 1rem;
+}
+
+.copy h1 {
+  margin: 0;
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
+}
+
+.copy p {
+  margin: 0;
+  color: var(--color-text-soft);
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+}

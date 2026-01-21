@@ -1,0 +1,59 @@
+.section {
+  padding-bottom: clamp(4rem, 6vw, 6rem);
+}
+
+.inner {
+  display: grid;
+  gap: clamp(2.4rem, 4vw, 3.5rem);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  align-items: start;
+}
+
+.copy {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.assurance {
+  display: grid;
+  gap: 0.65rem;
+  padding: 1.2rem 1.4rem;
+  border-radius: var(--radius-md);
+  background: #000000;
+  color: var(--hydro-blue);
+  border: 1px solid rgba(28, 151, 200, 0.45);
+}
+
+.form {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem 1.2rem;
+}
+
+.checkboxRow {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.checkboxLabel {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+  font-size: 0.95rem;
+  color: var(--color-text-soft);
+}
+
+.checkboxLabel input {
+  margin-top: 0.35rem;
+}
+
+@media (max-width: 640px) {
+  .checkboxRow {
+    flex-direction: column;
+  }
+}

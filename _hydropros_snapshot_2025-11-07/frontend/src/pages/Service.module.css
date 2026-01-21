@@ -1,0 +1,106 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4rem, 6vw, 6rem);
+  padding-bottom: clamp(4rem, 6vw, 6rem);
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.4rem;
+}
+
+.metrics article {
+  padding: 1.8rem 2rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  text-align: center;
+  border: 1px solid rgba(13, 60, 85, 0.08);
+  box-shadow: 0 35px 70px -55px rgba(13, 60, 85, 0.5);
+}
+
+.metrics h3 {
+  margin: 0 0 0.45rem;
+  font-size: 2.1rem;
+  color: var(--color-primary);
+}
+
+.metrics p {
+  margin: 0;
+  color: var(--color-text-soft);
+}
+
+.programs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: clamp(1.8rem, 3vw, 2.4rem);
+}
+
+.programCard {
+  padding: 2.1rem;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(229, 242, 248, 0.7));
+  border: 1px solid rgba(13, 60, 85, 0.08);
+  box-shadow: 0 45px 75px -55px rgba(13, 60, 85, 0.5);
+  display: grid;
+  gap: 0.9rem;
+}
+
+.programCard ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.4rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.diagnostics {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.diagnosticsCopy {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.diagnosticsGrid {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.diagnosticsGrid article {
+  padding: 1.8rem 2rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  border: 1px solid rgba(13, 60, 85, 0.1);
+  box-shadow: 0 40px 80px -55px rgba(13, 60, 85, 0.45);
+}
+
+.enroll {
+  display: grid;
+}
+
+.enrollCard {
+  display: grid;
+  gap: 1.8rem;
+}
+
+.enrollCopy {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.enrollForm {
+  display: grid;
+  gap: 1.2rem;
+}
+
+@media (max-width: 720px) {
+  .diagnostics {
+    grid-template-columns: 1fr;
+  }
+}

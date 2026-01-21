@@ -1,0 +1,140 @@
+.wrapper {
+  display: grid;
+  gap: 1rem;
+  width: 100%;
+  max-width: 560px;
+  background: #000000;
+  color: var(--hydro-blue);
+  border-radius: 24px;
+  padding: clamp(1.4rem, 2.6vw, 2rem);
+  border: 1px solid rgba(28, 151, 200, 0.45);
+  box-shadow: 0 40px 80px -55px rgba(0, 0, 0, 0.95);
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(1.7rem, 2.4vw, 2.2rem);
+  color: var(--hydro-blue);
+}
+
+.subtitle {
+  margin: 0 0 0.5rem;
+  color: var(--hydro-blue);
+}
+
+.form {
+  display: grid;
+  gap: 1rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.85rem;
+}
+
+.row label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  font-size: 0.95rem;
+  color: var(--hydro-blue);
+}
+
+.row input,
+.row select,
+.row textarea {
+  width: 100%;
+  border: 1px solid #d7e2ea;
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  font: inherit;
+  color: inherit;
+  background: #fff;
+  transition:
+    border 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.row input:focus,
+.row select:focus,
+.row textarea:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(28, 151, 200, 0.2);
+  outline: none;
+}
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.9rem;
+  color: var(--hydro-blue);
+  font-weight: 600;
+}
+
+.checkbox input {
+  margin: 0;
+}
+
+.error {
+  grid-column: 1 / -1;
+  background: #fff5f5;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+}
+
+.submit {
+  grid-column: 1 / -1;
+  height: 52px;
+  border: 1px solid var(--hydro-blue);
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  background: var(--hydro-blue);
+  color: #ffffff;
+  box-shadow: 0 15px 25px -12px rgba(0, 0, 0, 0.8);
+  transition:
+    transform 70ms ease,
+    box-shadow 200ms ease;
+}
+
+.submit:hover {
+  box-shadow: 0 18px 28px -10px rgba(0, 0, 0, 0.9);
+  transform: translateY(-1px);
+}
+
+.submit:active {
+  transform: translateY(0);
+  box-shadow: 0 12px 20px -10px rgba(0, 0, 0, 0.85);
+}
+
+.submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.success {
+  text-align: center;
+}
+
+.success h3 {
+  margin: 0 0 0.5rem;
+  color: var(--hydro-blue);
+}
+
+.success p {
+  margin: 0.2rem 0;
+  color: var(--hydro-blue);
+}
+
+@media (max-width: 600px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}

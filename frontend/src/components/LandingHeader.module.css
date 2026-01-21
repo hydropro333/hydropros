@@ -1,0 +1,237 @@
+.header {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0.85rem 0 0.95rem;
+  /* Use the light theme's surface color */
+  background: #ffffff;
+  /* Use a light border */
+  border-bottom: 1px solid rgba(13, 60, 85, 0.08);
+}
+
+.inner {
+  width: 100%;
+  padding: 0 clamp(0.5rem, 2vw, 1.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(1rem, 3vw, 3rem);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logoImage {
+  height: clamp(99px, 15.6vw, 146px);
+  width: auto;
+  max-width: min(624px, 70vw);
+  object-fit: contain;
+  display: block;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.navLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.2rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #fff;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  left: 0.8rem;
+  right: 0.8rem;
+  bottom: 0.3rem;
+  height: 2px;
+  background: #fff;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+  border-radius: 2px;
+}
+
+.navLink:hover::after {
+  transform: scaleX(0.6);
+}
+
+.navLinkActive {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.2rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #fff;
+  letter-spacing: 0.04em;
+}
+
+.navLinkActive::after {
+  content: '';
+  position: absolute;
+  left: 0.8rem;
+  right: 0.8rem;
+  bottom: 0.3rem;
+  height: 2px;
+  background: #fff;
+  transform: scaleX(1);
+  border-radius: 2px;
+}
+
+.phoneGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.phoneLabel {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #fff;
+  letter-spacing: 0.04em;
+}
+
+.phonePill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.72rem 1.44rem;
+  font-weight: 700;
+  font-size: 1.32rem;
+  color: #fff;
+  background: var(--color-primary);
+  border-radius: 50px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.phonePill:hover {
+  background: var(--color-accent);
+}
+
+/* Mobile menu button */
+.menuButton {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1001;
+}
+
+.menuButton span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menuButtonOpen span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menuButtonOpen span:nth-child(2) {
+  opacity: 0;
+}
+
+.menuButtonOpen span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .menuButton {
+    display: flex;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(28, 151, 200, 0.3);
+    border-radius: 8px;
+  }
+
+  .nav {
+    position: fixed;
+    top: 80px;
+    right: 1rem;
+    left: auto;
+    bottom: auto;
+    width: auto;
+    min-width: 200px;
+    background: linear-gradient(180deg, #0b1d2a 0%, #0a1520 100%) !important;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 0;
+    padding: 0.5rem 0;
+    border-radius: 12px;
+    border: 1px solid rgba(28, 151, 200, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+  }
+
+  .navOpen {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .navLink,
+  .navLinkActive {
+    display: block;
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 0.8rem 1.5rem;
+    color: #1c97c8;
+    text-align: left;
+  }
+
+  .navLink:hover {
+    background: rgba(28, 151, 200, 0.15);
+    color: #47c2ff;
+  }
+
+  .navLinkActive {
+    color: #47c2ff;
+    background: rgba(28, 151, 200, 0.1);
+  }
+
+  .navLink::after,
+  .navLinkActive::after {
+    display: none;
+  }
+
+  .phoneGroup {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .logoImage {
+    height: 70px;
+  }
+}

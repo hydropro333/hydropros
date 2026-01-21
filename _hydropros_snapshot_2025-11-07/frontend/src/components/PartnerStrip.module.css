@@ -1,0 +1,23 @@
+.section {
+  margin-top: -1.5rem;
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem 2.2rem;
+  justify-content: center;
+  padding: 1.4rem 2rem;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(13, 60, 85, 0.08);
+  box-shadow: 0 25px 65px -40px rgba(13, 60, 85, 0.45);
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  letter-spacing: 0.24em;
+  color: rgba(13, 60, 85, 0.65);
+}
+
+.inner span {
+  white-space: nowrap;
+}

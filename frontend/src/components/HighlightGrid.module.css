@@ -1,0 +1,44 @@
+.wrapper {
+  position: relative;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: clamp(1.8rem, 3vw, 2.6rem);
+}
+
+.card {
+  position: relative;
+  padding: 2.1rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  border: 1px solid rgba(13, 60, 85, 0.08);
+  box-shadow: 0 45px 85px -55px rgba(13, 60, 85, 0.7);
+  overflow: hidden;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-accent), rgba(28, 151, 200, 0));
+}
+
+.metric {
+  font-family: var(--font-heading);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  color: rgba(28, 151, 200, 0.9);
+}
+
+.card h3 {
+  margin-top: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.card p {
+  margin-bottom: 0;
+}

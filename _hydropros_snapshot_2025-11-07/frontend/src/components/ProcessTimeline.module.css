@@ -1,0 +1,58 @@
+.section {
+  display: grid;
+  gap: 2.8rem;
+}
+
+.header {
+  max-width: 640px;
+}
+
+.timeline {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 1.6rem;
+}
+
+.timeline li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.4rem;
+  align-items: start;
+  padding: 1.6rem 2rem;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(13, 60, 85, 0.08);
+  box-shadow: 0 35px 70px -55px rgba(13, 60, 85, 0.5);
+}
+
+.stepNumber {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  font-weight: 700;
+  color: var(--color-primary);
+  background: rgba(28, 151, 200, 0.15);
+  border: 1px solid rgba(28, 151, 200, 0.35);
+}
+
+.timeline h3 {
+  margin: 0 0 0.4rem;
+}
+
+.timeline p {
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .timeline li {
+    grid-template-columns: 1fr;
+  }
+
+  .stepNumber {
+    justify-self: flex-start;
+  }
+}

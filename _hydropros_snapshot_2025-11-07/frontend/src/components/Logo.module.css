@@ -1,0 +1,49 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--color-primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  opacity: 0.94;
+  transition: opacity var(--transition-base);
+}
+
+.logo:hover {
+  opacity: 1;
+}
+
+.markWrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 0.3rem 0.5rem;
+  box-shadow: 0 10px 30px -18px rgba(13, 60, 85, 0.6), inset 0 0 0 1px rgba(13, 60, 85, 0.06);
+}
+
+.brandImage { display: block; height: auto; width: 138px; }
+
+.wordmark {
+  font-size: 1rem;
+  letter-spacing: 0.38em;
+}
+
+.sm .wordmark {
+  font-size: 0.85rem;
+}
+
+.md .wordmark {
+  font-size: 1rem;
+}
+
+.lg .wordmark {
+  font-size: 1.1rem;
+}
+
+.sm .brandImage { width: 110px; }
+.md .brandImage { width: 138px; }
+.lg .brandImage { width: 168px; }

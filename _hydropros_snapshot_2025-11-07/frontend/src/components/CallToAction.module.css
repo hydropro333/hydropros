@@ -1,0 +1,58 @@
+.section {
+  position: relative;
+  padding: clamp(3.5rem, 5vw, 5rem);
+}
+
+.inner {
+  display: grid;
+  gap: 1.8rem;
+  align-items: center;
+  padding: clamp(2.6rem, 4vw, 3.2rem);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(150deg, rgba(13, 60, 85, 0.95), rgba(28, 151, 200, 0.85));
+  color: #fff;
+  box-shadow: 0 60px 120px -65px rgba(13, 60, 85, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.copy h2 {
+  color: #fff;
+  max-width: 460px;
+}
+
+.copy p {
+  color: rgba(255, 255, 255, 0.76);
+  max-width: 520px;
+}
+
+.actions {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.actions .btn-secondary {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.actions .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+@media (max-width: 720px) {
+  .inner {
+    text-align: left;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .actions .btn {
+    flex: 1;
+    justify-content: center;
+  }
+}
