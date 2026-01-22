@@ -121,7 +121,7 @@ function Footer() {
               <h4>Follow Us</h4>
               <div className={styles.socialLinks}>
                 <a
-                  href="https://www.facebook.com/floridahydropros"
+                  href="https://www.facebook.com/profile.php?id=61584838814110"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook"
@@ -129,7 +129,7 @@ function Footer() {
                   <FacebookIcon />
                 </a>
                 <a
-                  href="https://www.instagram.com/floridahydropros"
+                  href="https://www.instagram.com/floridahydropro/"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"
